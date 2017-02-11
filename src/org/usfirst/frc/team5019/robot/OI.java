@@ -10,9 +10,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	protected Joystick itsJoystick = new Joystick(0);
-
+	protected Joystick itsJoystick;
+	
 	public OI() {
+		itsJoystick = new Joystick(0);
 		// new JoystickButton(itsJoystick, 12).whenPressed(new LowGoal());
 		// new JoystickButton(itsJoystick, 10).whenPressed(new Collect());
 
@@ -33,9 +34,9 @@ public class OI {
 		return itsJoystick;
 	}
 	
-	//// CREATING BUTTONS
+	// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
-	//// joystick.
+	// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	// Joystick stick = new Joystick(port);
@@ -45,7 +46,7 @@ public class OI {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
+	// TRIGGERING COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
 	// three ways:
 
@@ -55,7 +56,7 @@ public class OI {
 
 	// Run the command while the button is being held down and interrupt it once
 	// the button is released.
-	// button.whileHeld(new ExampleCommand());
+	//  button.whileHeld(new ExampleCommand());
 
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.

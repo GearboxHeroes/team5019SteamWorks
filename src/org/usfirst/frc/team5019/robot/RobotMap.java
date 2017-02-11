@@ -35,6 +35,8 @@ public class RobotMap {
 	public static int kGearArmMotorID = 0;
 	
 	// Analog I/O IDs
-	public static int kGearArmEncoderQuadAID = 0;
-	public static int kGearArmEncoderQuadBID = 1;
+	public static int kGyroPort = 0;
+	public static int kGearArmEncoderQuadAID = 1;
+	public static int kGearArmEncoderQuadBID = 2;
 }
+

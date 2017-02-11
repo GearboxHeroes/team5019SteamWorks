@@ -12,15 +12,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class RopeClimbSubsystem extends Subsystem {
-	protected Compressor itsCompressor = new Compressor(
-			RobotMap.kCompressorCANID);
-	protected CANTalon itsLeftRoller = new CANTalon(
-			RobotMap.kLeftRollerMotorCANID);
-	protected CANTalon itsRightRoller = new CANTalon(
-			RobotMap.kRightRollerMotorCANID);
-	protected Solenoid itsThreeWayValve = new Solenoid(
-			RobotMap.kThreeWayValveID);
-
+	protected Compressor itsCompressor;
+	protected CANTalon itsLeftRoller;
+	protected CANTalon itsRightRoller;
+	protected Solenoid itsThreeWayValve;
+	
+	public RopeClimbSubsystem() {
+		itsCompressor = new Compressor(RobotMap.kCompressorCANID);
+		itsLeftRoller = new CANTalon(RobotMap.kLeftRollerMotorCANID);
+		itsRightRoller = new CANTalon(RobotMap.kRightRollerMotorCANID);
+		itsThreeWayValve = new Solenoid(RobotMap.kThreeWayValveID);
+	}
 	// Put methods for controlling this subsystem
     // here. Call these from Commands.
 

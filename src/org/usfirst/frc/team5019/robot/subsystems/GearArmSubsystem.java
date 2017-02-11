@@ -10,11 +10,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class GearArmSubsystem extends Subsystem {
-	protected Spark itsGearArmMotor = new Spark(
-			RobotMap.kGearArmMotorID);
-	protected Encoder itsGearArmEncoder = new Encoder(
+	protected Spark itsGearArmMotor;
+	protected Encoder itsGearArmEncoder;
+
+	public GearArmSubsystem() {
+		itsGearArmMotor = new Spark(RobotMap.kGearArmMotorID);
+		itsGearArmEncoder = new Encoder(
 			RobotMap.kGearArmEncoderQuadAID,
 			RobotMap.kGearArmEncoderQuadBID);
+	}
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

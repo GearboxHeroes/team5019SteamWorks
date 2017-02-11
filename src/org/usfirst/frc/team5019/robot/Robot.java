@@ -26,11 +26,14 @@ public class Robot extends IterativeRobot {
 	private static final MecanumDriveSubsystem itsMecanumDriveSubsystem = new MecanumDriveSubsystem();
 	private static final GearArmSubsystem itsGearArmSubsystem = new GearArmSubsystem();
 	private static final RopeClimbSubsystem itsRopeClimbSubsystem = new RopeClimbSubsystem();
-	private static OI itsOI;
-
+	public static OI itsOI;
 	Command itsAutonomousCommand;
 	Command itsFirstTeleopCommand;
-	SendableChooser<Command> itsModeChooser = new SendableChooser<Command>();
+	SendableChooser<Command> itsModeChooser;
+
+	public Robot() {
+		itsModeChooser = new SendableChooser<Command>();
+	}
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -140,3 +143,4 @@ public class Robot extends IterativeRobot {
 		return itsOI;
 	}
 }
+
