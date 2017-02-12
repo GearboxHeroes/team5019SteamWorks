@@ -6,6 +6,7 @@ import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.CANTalon;
 
@@ -23,6 +24,9 @@ public class MecanumDriveSubsystem extends Subsystem {
 				new CANTalon(RobotMap.kRightFrontDriveMotorCANID),
 				new CANTalon(RobotMap.kLeftRearDriveMotorCANID),
 				new CANTalon(RobotMap.kRightRearDriveMotorCANID) );
+		
+		itsRobotDrive.setInvertedMotor(MotorType.kFrontRight, true);
+		itsRobotDrive.setInvertedMotor(MotorType.kRearRight, true);
 		
 		itsGyro = new AnalogGyro(RobotMap.kGyroPort);
 
@@ -49,6 +53,19 @@ public class MecanumDriveSubsystem extends Subsystem {
 		// 		itsGyro.getAngle());		
 	}
 
+	public void mecanumDrive(double pX, double pY, double pRotation) {
+		itsRobotDrive.mecanumDrive_Cartesian(
+				pX,
+				pY,
+				pRotation,
+				0);
+		
+		// itsRobotDrive.mecanumDrive_Cartesian(
+		// 		itsJoystick.getX(),
+		// 		itsJoystick.getY(),
+		// 		itsJoystick.getZ(),
+		// 		itsGyro.getAngle());		
+	}
 	public void stop() {
 		// TODO Auto-generated method stub
 		

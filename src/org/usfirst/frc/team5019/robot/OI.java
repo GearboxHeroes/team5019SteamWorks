@@ -1,5 +1,8 @@
 package org.usfirst.frc.team5019.robot;
 
+import org.usfirst.frc.team5019.robot.commands.GearArmRotate;
+import org.usfirst.frc.team5019.robot.commands.RunCompressor;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -14,13 +17,8 @@ public class OI {
 	
 	public OI() {
 		itsJoystick = new Joystick(0);
-		// new JoystickButton(itsJoystick, 12).whenPressed(new LowGoal());
-		// new JoystickButton(itsJoystick, 10).whenPressed(new Collect());
-
-		// new JoystickButton(itsJoystick, 11).whenPressed(new SetPivotSetpoint(Pivot.kShoot));
-		// new JoystickButton(itsJoystick, 9).whenPressed(new SetPivotSetpoint(Pivot.kShootNear));
-
-		// new DoubleButton(itsJoystick, 2, 3).whenActive(new Shoot());
+		new JoystickButton(itsJoystick, 4).whenPressed(new GearArmRotate(0.0, 90.0));
+		new JoystickButton(itsJoystick, 6).whenPressed(new RunCompressor());
 
 		// SmartDashboard Buttons
 		// SmartDashboard.putData("Drive Forward", new DriveForward(2.25));

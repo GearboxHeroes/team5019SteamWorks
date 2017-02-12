@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team5019.robot.commands.DriveForward;
 import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
 import org.usfirst.frc.team5019.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5019.robot.subsystems.MecanumDriveSubsystem;
@@ -80,8 +81,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		itsAutonomousCommand = itsModeChooser.getSelected();
-
+		// itsAutonomousCommand = itsModeChooser.getSelected();
+		itsAutonomousCommand = new DriveForward(2.0);
 		// schedule the autonomous command (example)
 		if (itsAutonomousCommand != null)
 			itsAutonomousCommand.start();

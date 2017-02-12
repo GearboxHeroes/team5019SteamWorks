@@ -19,9 +19,14 @@ public class GearArmSubsystem extends Subsystem {
 		itsGearArmMotor = new Spark(RobotMap.kGearArmMotorID);
 		itsGearArmEncoder = new Encoder(
 			RobotMap.kGearArmEncoderQuadAID,
-			RobotMap.kGearArmEncoderQuadBID);
+			RobotMap.kGearArmEncoderQuadBID,
+			false,
+			Encoder.EncodingType.k4X);
+		itsGearArmEncoder.reset();
+		
 		itsGearArmPid = new PIDController(
 				0.1, 0.001, 0.0, itsGearArmEncoder, itsGearArmMotor );
+
 	}
 	
     // Put methods for controlling this subsystem

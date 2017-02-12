@@ -34,9 +34,12 @@ public class RobotMap {
 	// PWM IDs
 	public static int kGearArmMotorID = 0;
 	
+	// Digital I/O Port Numbers
+	public static int kGearArmEncoderQuadAID = 0;
+	public static int kGearArmEncoderQuadBID = 1;
+
 	// Analog I/O IDs
 	public static int kGyroPort = 0;
-	public static int kGearArmEncoderQuadAID = 1;
-	public static int kGearArmEncoderQuadBID = 2;
+
 }
 
