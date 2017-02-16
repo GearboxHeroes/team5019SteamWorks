@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveForward extends Command {
+public class DriveLeft extends Command {
 
 	private int aExecuteNum;
 	private int aTimesRun;
@@ -15,13 +15,14 @@ public class DriveForward extends Command {
 	private double aSpeedCommand;
 	private int aTimesLeft;
 	
-    public DriveForward(double pDriveTime) {
+    public DriveLeft(double pDriveTime) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.getItsMecanumDriveSubsystem());
     	aExecuteNum = (int) (pDriveTime * 50);
     	aTimesRun = 0;
     	aSpeedCommand = 0.0;
+    	aTimesLeft = aExecuteNum - aTimesRun;
     }
 
     // Called just before this Command runs the first time
@@ -43,7 +44,7 @@ public class DriveForward extends Command {
     			aSpeedCommand = 1.0;
     	    	}
     	}
-    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(aSpeedCommand, 0.0, 0.0);
+    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(0.0, aSpeedCommand, 0.0);
     	aTimesRun++;
     }
 

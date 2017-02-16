@@ -8,9 +8,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team5019.robot.commands.BasicAutonomous;
+import org.usfirst.frc.team5019.robot.commands.DriveBackwards;
 import org.usfirst.frc.team5019.robot.commands.DriveForward;
 import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
+import org.usfirst.frc.team5019.robot.commands.DriveLeft;
+import org.usfirst.frc.team5019.robot.commands.DriveRight;
 import org.usfirst.frc.team5019.robot.commands.ExampleCommand;
+import org.usfirst.frc.team5019.robot.commands.GearArmRotate;
 import org.usfirst.frc.team5019.robot.subsystems.MecanumDriveSubsystem;
 import org.usfirst.frc.team5019.robot.subsystems.GearArmSubsystem;
 import org.usfirst.frc.team5019.robot.subsystems.RopeClimbSubsystem;
@@ -81,8 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		// itsAutonomousCommand = itsModeChooser.getSelected();
-		itsAutonomousCommand = new DriveForward(2.0);
+		itsAutonomousCommand = new BasicAutonomous();
 		// schedule the autonomous command (example)
 		if (itsAutonomousCommand != null)
 			itsAutonomousCommand.start();
@@ -116,7 +120,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		// Watchdog.getInstance().feed(); // pet the dog
 		Scheduler.getInstance().run();
 	}
 

@@ -17,8 +17,8 @@ public class OI {
 	
 	public OI() {
 		itsJoystick = new Joystick(0);
-		new JoystickButton(itsJoystick, 4).whenPressed(new GearArmRotate(0.0, 90.0));
-		new JoystickButton(itsJoystick, 6).whenPressed(new RunCompressor());
+		new JoystickButton(itsJoystick, 5).whenPressed(new GearArmRotate(0.0, 90.0));
+		new JoystickButton(itsJoystick, 7).whenPressed(new RunCompressor());
 
 		// SmartDashboard Buttons
 		// SmartDashboard.putData("Drive Forward", new DriveForward(2.25));

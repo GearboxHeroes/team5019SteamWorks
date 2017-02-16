@@ -19,6 +19,8 @@ public class RopeClimbSubsystem extends Subsystem {
 	
 	public RopeClimbSubsystem() {
 		itsCompressor = new Compressor(RobotMap.kCompressorCANID);
+		itsCompressor.setClosedLoopControl(false);
+
 		itsLeftRoller = new CANTalon(RobotMap.kLeftRollerMotorCANID);
 		itsRightRoller = new CANTalon(RobotMap.kRightRollerMotorCANID);
 		itsThreeWayValve = new Solenoid(RobotMap.kThreeWayValveID);
