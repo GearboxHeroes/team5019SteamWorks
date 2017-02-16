@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDSourceType;
 
 /**
  *
@@ -26,6 +27,7 @@ public class GearArmSubsystem extends Subsystem {
 			false,
 			Encoder.EncodingType.k2X);
 		itsGearArmEncoder.setDistancePerPulse(0.724346);
+		itsGearArmEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
 		itsGearArmEncoder.reset();
 		
 		itsGearArmPid = new PIDController(
