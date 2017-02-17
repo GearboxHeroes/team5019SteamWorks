@@ -20,6 +20,7 @@ public class GearArmSubsystem extends Subsystem {
 	public GearArmSubsystem() {
 		itsGearArmMotor = new Spark(RobotMap.kGearArmMotorID);
 		itsGearArmMotor.setSafetyEnabled(true);
+		itsGearArmMotor.setExpiration(0.1);
 		
 		itsGearArmEncoder = new Encoder(
 			RobotMap.kGearArmEncoderQuadAID,
