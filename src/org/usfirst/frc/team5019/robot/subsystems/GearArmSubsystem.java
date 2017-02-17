@@ -28,6 +28,7 @@ public class GearArmSubsystem extends Subsystem {
 			Encoder.EncodingType.k2X);
 		itsGearArmEncoder.setDistancePerPulse(0.724346);
 		itsGearArmEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+		itsGearArmEncoder.setSamplesToAverage(4);
 		itsGearArmEncoder.reset();
 		
 		itsGearArmPid = new PIDController(
