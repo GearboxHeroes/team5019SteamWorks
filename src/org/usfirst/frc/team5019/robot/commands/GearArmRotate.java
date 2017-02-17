@@ -14,9 +14,8 @@ public class GearArmRotate extends Command {
 	private double aCurrentAngle;
 	private double aAnglePerExecute;
 	private double aRate;
-    public GearArmRotate(double pStartAngle, double pEndAngle) {
+    public GearArmRotate(double pEndAngle) {
     	requires(Robot.getItsGearArmSubsystem());
-    	aStartAngle = pStartAngle;
     	aEndAngle = pEndAngle;
     	aRate = 10.0; // degrees/second
     	aAnglePerExecute = aRate * 0.020;
@@ -24,6 +23,7 @@ public class GearArmRotate extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	aStartAngle = Robot.getItsGearArmSubsystem().getItsGearArmEncoder().getDistance();
     	aCurrentAngle = aStartAngle;
     }
 
