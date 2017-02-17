@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5019.robot.commands.BasicAutonomous;
 import org.usfirst.frc.team5019.robot.commands.DriveBackwards;
+import org.usfirst.frc.team5019.robot.commands.DriveClockwise;
 import org.usfirst.frc.team5019.robot.commands.DriveForward;
 import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
 import org.usfirst.frc.team5019.robot.commands.DriveLeft;
@@ -48,10 +49,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		itsOI = new OI();
-		itsModeChooser.addDefault("Default Auto", new ExampleCommand());
-		itsModeChooser.addObject("Left", new ExampleCommand());
-		itsModeChooser.addObject("Center", new ExampleCommand());
-		itsModeChooser.addObject("Right", new ExampleCommand());
+		itsModeChooser.addDefault("Default Auto", new DriveForward(2.0));
+		itsModeChooser.addObject("Left", new DriveForward(2.0));
+		itsModeChooser.addObject("Center", new DriveForward(2.0));
+		itsModeChooser.addObject("Right", new DriveForward(2.0));
 		SmartDashboard.putData("Autonomous mode chooser", itsModeChooser);
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
@@ -86,7 +87,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		itsAutonomousCommand = new BasicAutonomous();
+		itsAutonomousCommand = new DriveClockwise(2.0);
+		// itsAutonomousCommand = new BasicAutonomous();
 		// schedule the autonomous command (example)
 		if (itsAutonomousCommand != null)
 			itsAutonomousCommand.start();
