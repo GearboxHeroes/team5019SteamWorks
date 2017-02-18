@@ -48,6 +48,10 @@ public class RobotMap {
 	public static int kJoystickRTrigger = 3;
 	public static int kJoystickRX = 4;
 	public static int kJoystickRY = 5;
+	
+	// Gear arm angles for loading/unloading
+	public static double kGearArmLoadAngle = -40.0;
+	public static double kGearArmUnloadAngle = -2.0;
 
 }
 

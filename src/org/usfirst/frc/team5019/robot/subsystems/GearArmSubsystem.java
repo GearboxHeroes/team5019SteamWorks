@@ -1,14 +1,13 @@
 package org.usfirst.frc.team5019.robot.subsystems;
 
 import org.usfirst.frc.team5019.robot.RobotMap;
+import org.usfirst.frc.team5019.robot.commands.GearUnload;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDSourceType;
 
 /**
  *
@@ -41,7 +40,7 @@ public class GearArmSubsystem extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new GearUnload());
     }
     
     public Spark getItsGearArmMotor() {
