@@ -25,11 +25,11 @@ public class RobotMap {
 	public static int kLeftRollerMotorCANID = 5;
 	public static int kRightRollerMotorCANID = 6;
 	
-	// Compressor CAN IDs
-	public static int kCompressorCANID = 1;
+	// PCM CAN ID
+	public static int kPCMCANID = 1;
 	
-	// Solenoid IDs (map to solenoid ports on PCM)
-	public static int kThreeWayValveID = 0;
+	// Solenoid IDs (map to solenoid port numbers on PCM)
+	public static int kThreeWayValvePortID = 0;
 	
 	// PWM IDs
 	public static int kGearArmMotorID = 0;
@@ -40,6 +40,14 @@ public class RobotMap {
 
 	// Analog I/O IDs
 	public static int kGyroPort = 0;
+	
+	// Joystick Axes
+	public static int kJoystickLX = 0;
+	public static int kJoystickLY = 1;
+	public static int kJoystickLTrigger = 2;
+	public static int kJoystickRTrigger = 3;
+	public static int kJoystickRX = 4;
+	public static int kJoystickRY = 5;
 
 }
 
