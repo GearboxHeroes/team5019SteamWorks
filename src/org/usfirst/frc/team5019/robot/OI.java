@@ -1,7 +1,10 @@
 package org.usfirst.frc.team5019.robot;
 
 import org.usfirst.frc.team5019.robot.commands.GearArmRotate;
+import org.usfirst.frc.team5019.robot.commands.OpenSquishers;
+import org.usfirst.frc.team5019.robot.commands.PreSpinSquishers;
 import org.usfirst.frc.team5019.robot.commands.RunCompressor;
+import org.usfirst.frc.team5019.robot.commands.SpinSquishers;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -17,16 +20,14 @@ public class OI {
 	
 	public OI() {
 		itsJoystick = new Joystick(0);
-		new JoystickButton(itsJoystick, 5).whenPressed(new GearArmRotate(30.0));
-		new JoystickButton(itsJoystick, 6).whenPressed(new GearArmRotate(90.0));
+		new JoystickButton(itsJoystick, 1).toggleWhenPressed(new OpenSquishers());
+		new JoystickButton(itsJoystick, 2).whileHeld(new PreSpinSquishers());
+		new JoystickButton(itsJoystick, 3).toggleWhenPressed(new SpinSquishers());
+		
+		new JoystickButton(itsJoystick, 5).whenPressed(new GearArmRotate(-47.0));
+		new JoystickButton(itsJoystick, 6).whenPressed(new GearArmRotate(-2.0));
 		new JoystickButton(itsJoystick, 7).whenPressed(new RunCompressor());
 		
-		// SmartDashboard Buttons
-		// SmartDashboard.putData("Drive Forward", new DriveForward(2.25));
-		// SmartDashboard.putData("Drive Backward", new DriveForward(-2.25));
-		// SmartDashboard.putData("Start Rollers", new SetCollectionSpeed(Collector.kForward));
-		// SmartDashboard.putData("Stop Rollers", new SetCollectionSpeed(Collector.kStop));
-		// SmartDashboard.putData("Reverse Rollers", new SetCollectionSpeed(Collector.kReverse));
 	}
 
 	public Joystick getItsJoystick() {
