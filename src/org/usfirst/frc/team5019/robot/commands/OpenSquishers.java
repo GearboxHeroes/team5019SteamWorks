@@ -13,8 +13,9 @@ public class OpenSquishers extends Command {
     public OpenSquishers() {
         super();
         requires(Robot.getItsRopeClimbSubsystem());
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        
+        Robot.getItsRopeClimbSubsystem().getItsThreeWayValve().set(false);
+
     }
 
     // Called once when the command executes
