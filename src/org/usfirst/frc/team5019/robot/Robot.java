@@ -8,6 +8,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team5019.robot.commands.AutonomousPosOne;
+import org.usfirst.frc.team5019.robot.commands.AutonomousPosThree;
+import org.usfirst.frc.team5019.robot.commands.AutonomousPosThreeAlt;
+import org.usfirst.frc.team5019.robot.commands.AutonomousPosTwo;
+import org.usfirst.frc.team5019.robot.commands.AutonomousPosTwoAlt;
 import org.usfirst.frc.team5019.robot.commands.BasicAutonomous;
 import org.usfirst.frc.team5019.robot.commands.DriveBackwards;
 import org.usfirst.frc.team5019.robot.commands.DriveClockwise;
@@ -49,10 +54,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		itsOI = new OI();
-		itsModeChooser.addDefault("Default Auto", new DriveForward(2.0));
-		itsModeChooser.addObject("Left", new DriveForward(2.0));
-		itsModeChooser.addObject("Center", new DriveForward(2.0));
-		itsModeChooser.addObject("Right", new DriveForward(2.0));
+		itsModeChooser.addDefault("1", new AutonomousPosOne());
+		itsModeChooser.addObject("2", new AutonomousPosTwo());
+		itsModeChooser.addObject("3", new AutonomousPosThree());
+		itsModeChooser.addObject("2alt", new AutonomousPosTwoAlt());
+		itsModeChooser.addObject("3alt", new AutonomousPosThreeAlt());
 		SmartDashboard.putData("Autonomous mode chooser", itsModeChooser);
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
@@ -87,8 +93,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		itsAutonomousCommand = new DriveClockwise(2.0);
-		// itsAutonomousCommand = new BasicAutonomous();
+		// itsAutonomousCommand = new AutonomousPosThree();
+		itsAutonomousCommand = new DriveBackwards(1.0);
+		// itsAutonomousCommand = (Command) itsModeChooser.getSelected();
 		// schedule the autonomous command (example)
 		if (itsAutonomousCommand != null)
 			itsAutonomousCommand.start();
