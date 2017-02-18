@@ -17,8 +17,8 @@ public class PreSpinSquishers extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.getItsRopeClimbSubsystem().getItsLeftRoller().set(0.1);
-    	Robot.getItsRopeClimbSubsystem().getItsRightRoller().set(0.1);
+    	Robot.getItsRopeClimbSubsystem().getItsLeftRoller().set(0.15);
+    	Robot.getItsRopeClimbSubsystem().getItsRightRoller().set(0.15);
     }
 
     // Called repeatedly when this Command is scheduled to run
