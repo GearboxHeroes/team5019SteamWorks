@@ -20,6 +20,8 @@ public class MecanumDriveSubsystem extends Subsystem {
 	private ADXRS450_Gyro itsGyro;
 	
 	public MecanumDriveSubsystem() {
+		super("MecanumDriveSubsystem");
+		
 		itsRobotDrive = new RobotDrive(
 				new CANTalon(RobotMap.kLeftFrontDriveMotorCANID),
 				new CANTalon(RobotMap.kRightFrontDriveMotorCANID),

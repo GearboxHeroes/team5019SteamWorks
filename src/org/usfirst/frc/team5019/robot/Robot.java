@@ -63,6 +63,11 @@ public class Robot extends IterativeRobot {
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
 		
+		SmartDashboard.putData(Scheduler.getInstance());
+		SmartDashboard.putData(itsMecanumDriveSubsystem);
+		SmartDashboard.putData(itsGearArmSubsystem);
+		SmartDashboard.putData(itsRopeClimbSubsystem);
+		
 	}
 
 	/**

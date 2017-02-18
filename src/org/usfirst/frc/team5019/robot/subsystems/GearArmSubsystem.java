@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSourceType;
 
@@ -18,6 +19,8 @@ public class GearArmSubsystem extends Subsystem {
 	protected PIDController itsGearArmPid;
 
 	public GearArmSubsystem() {
+		super("GearArmSubsystem");
+		
 		itsGearArmMotor = new Spark(RobotMap.kGearArmMotorID);
 		itsGearArmMotor.setSafetyEnabled(true);
 		itsGearArmMotor.setExpiration(0.1);
@@ -38,10 +41,11 @@ public class GearArmSubsystem extends Subsystem {
 		itsGearArmPid.setAbsoluteTolerance(0.5);
 		itsGearArmPid.setInputRange(-20.0, 110.0);
 		itsGearArmPid.setOutputRange(-1.0, 1.0);
-		LiveWindow.addActuator("GearArmSubsytem", "PIDController", itsGearArmPid);
+		LiveWindow.addActuator("GearArmSubsystem", "PIDController", itsGearArmPid);
 		itsGearArmPid.setSetpoint(0.0);
 		itsGearArmPid.enable();
-		
+		SmartDashboard.putData("Gear Arm PID", itsGearArmPid);
+		SmartDashboard.putData("GearArmEncoder",itsGearArmEncoder);
 	}
 	
     // Put methods for controlling this subsystem

@@ -19,6 +19,8 @@ public class RopeClimbSubsystem extends Subsystem {
 	protected Solenoid itsThreeWayValve;
 	
 	public RopeClimbSubsystem() {
+		super("RopeClimbSubsystem");
+		
 		itsCompressor = new Compressor(RobotMap.kPCMCANID);
 		itsCompressor.setClosedLoopControl(false);
 
