@@ -26,7 +26,7 @@ public class RunCompressor extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.getItsRopeClimbSubsystem().getItsCompressor().getPressureSwitchValue() == false) {
+    	if (Robot.getItsRopeClimbSubsystem().getItsCompressor().getPressureSwitchValue() == true) {
     		return true;
     	} else {
     		return false;
