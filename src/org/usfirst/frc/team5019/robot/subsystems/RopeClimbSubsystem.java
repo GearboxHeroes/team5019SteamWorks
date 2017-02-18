@@ -5,6 +5,7 @@ import org.usfirst.frc.team5019.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -18,12 +19,13 @@ public class RopeClimbSubsystem extends Subsystem {
 	protected Solenoid itsThreeWayValve;
 	
 	public RopeClimbSubsystem() {
-		itsCompressor = new Compressor(RobotMap.kCompressorCANID);
+		itsCompressor = new Compressor(RobotMap.kPCMCANID);
 		itsCompressor.setClosedLoopControl(false);
 
 		itsLeftRoller = new CANTalon(RobotMap.kLeftRollerMotorCANID);
 		itsRightRoller = new CANTalon(RobotMap.kRightRollerMotorCANID);
-		itsThreeWayValve = new Solenoid(RobotMap.kThreeWayValveID);
+		
+		itsThreeWayValve = new Solenoid(RobotMap.kPCMCANID, RobotMap.kThreeWayValvePortID);
 	}
 	// Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -32,6 +34,12 @@ public class RopeClimbSubsystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+	public void climbRope( Joystick itsJoystick )
+	{
+		itsLeftRoller.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
+		itsRightRoller.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
+	}
     
     public Compressor getItsCompressor() {
     	return itsCompressor;
