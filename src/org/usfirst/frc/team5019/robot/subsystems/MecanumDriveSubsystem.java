@@ -26,8 +26,8 @@ public class MecanumDriveSubsystem extends Subsystem {
 				new CANTalon(RobotMap.kLeftRearDriveMotorCANID),
 				new CANTalon(RobotMap.kRightRearDriveMotorCANID) );
 		
-		itsRobotDrive.setInvertedMotor(MotorType.kFrontRight, true);
-		itsRobotDrive.setInvertedMotor(MotorType.kRearRight, true);
+		itsRobotDrive.setInvertedMotor(MotorType.kFrontLeft, true);
+		itsRobotDrive.setInvertedMotor(MotorType.kRearLeft, true);
 		
 		itsGyro = new ADXRS450_Gyro();
 
