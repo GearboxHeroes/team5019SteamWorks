@@ -94,11 +94,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		// itsAutonomousCommand = new AutonomousPosThree();
-		itsAutonomousCommand = new DriveBackwards(1.0);
-		// itsAutonomousCommand = (Command) itsModeChooser.getSelected();
+		// itsAutonomousCommand = new DriveBackwards(1.0);
+		itsAutonomousCommand = (Command) itsModeChooser.getSelected();
 		// schedule the autonomous command (example)
-		if (itsAutonomousCommand != null)
+		if (itsAutonomousCommand != null) {
 			itsAutonomousCommand.start();
+		}
 	}
 
 	/**
