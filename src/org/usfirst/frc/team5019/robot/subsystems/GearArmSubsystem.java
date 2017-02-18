@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 public class GearArmSubsystem extends Subsystem {
 	protected Spark itsGearArmMotor;
 	protected Encoder itsGearArmEncoder;
-	protected PIDController itsGearArmPid;
 
 	public GearArmSubsystem() {
 		super("GearArmSubsystem");
@@ -31,20 +30,9 @@ public class GearArmSubsystem extends Subsystem {
 			false,
 			Encoder.EncodingType.k2X);
 		itsGearArmEncoder.setDistancePerPulse(0.724346);
-		itsGearArmEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
 		itsGearArmEncoder.setSamplesToAverage(4);
 		itsGearArmEncoder.reset();
 		
-		itsGearArmPid = new PIDController(
-				0.1, 0.0, 0.0, itsGearArmEncoder, itsGearArmMotor, 0.050 ); // 50 ms loop
-		itsGearArmPid.setContinuous(false);
-		itsGearArmPid.setAbsoluteTolerance(0.5);
-		itsGearArmPid.setInputRange(-20.0, 110.0);
-		itsGearArmPid.setOutputRange(-1.0, 1.0);
-		LiveWindow.addActuator("GearArmSubsystem", "PIDController", itsGearArmPid);
-		itsGearArmPid.setSetpoint(0.0);
-		itsGearArmPid.enable();
-		SmartDashboard.putData("Gear Arm PID", itsGearArmPid);
 		SmartDashboard.putData("GearArmEncoder",itsGearArmEncoder);
 	}
 	
@@ -63,8 +51,5 @@ public class GearArmSubsystem extends Subsystem {
     public Encoder getItsGearArmEncoder() {
     	return itsGearArmEncoder;
     }
-    
-    public PIDController getItsGearArmPid() {
-    	return itsGearArmPid;
-    }
+ 
 }

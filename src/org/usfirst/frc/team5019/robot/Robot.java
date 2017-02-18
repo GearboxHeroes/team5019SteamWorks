@@ -21,7 +21,6 @@ import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
 import org.usfirst.frc.team5019.robot.commands.DriveLeft;
 import org.usfirst.frc.team5019.robot.commands.DriveRight;
 import org.usfirst.frc.team5019.robot.commands.ExampleCommand;
-import org.usfirst.frc.team5019.robot.commands.GearArmRotate;
 import org.usfirst.frc.team5019.robot.subsystems.MecanumDriveSubsystem;
 import org.usfirst.frc.team5019.robot.subsystems.GearArmSubsystem;
 import org.usfirst.frc.team5019.robot.subsystems.RopeClimbSubsystem;

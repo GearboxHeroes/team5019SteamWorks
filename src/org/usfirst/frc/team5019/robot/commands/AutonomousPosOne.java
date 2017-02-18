@@ -9,7 +9,7 @@ public class AutonomousPosOne extends CommandGroup {
 
     public AutonomousPosOne() {
         // Add Commands here:
-        addParallel(new GearArmRotate(-2.0));
+        // addParallel(new GearArmRotate(-2.0));
     	addSequential(new DriveForward(1.0));
         // these will run in order.
 

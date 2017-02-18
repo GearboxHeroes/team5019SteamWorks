@@ -1,6 +1,5 @@
 package org.usfirst.frc.team5019.robot;
 
-import org.usfirst.frc.team5019.robot.commands.GearArmRotate;
 import org.usfirst.frc.team5019.robot.commands.OpenSquishers;
 import org.usfirst.frc.team5019.robot.commands.PreSpinSquishers;
 import org.usfirst.frc.team5019.robot.commands.RunCompressor;
@@ -24,8 +23,8 @@ public class OI {
 		new JoystickButton(itsJoystick, 2).whileHeld(new PreSpinSquishers());
 		new JoystickButton(itsJoystick, 3).toggleWhenPressed(new SpinSquishers());
 		
-		new JoystickButton(itsJoystick, 5).whenPressed(new GearArmRotate(-47.0));
-		new JoystickButton(itsJoystick, 6).whenPressed(new GearArmRotate(-2.0));
+		// new JoystickButton(itsJoystick, 5).whenPressed(new GearArmRotate(-47.0));
+		// new JoystickButton(itsJoystick, 6).whenPressed(new GearArmRotate(-2.0));
 		new JoystickButton(itsJoystick, 7).whenPressed(new RunCompressor());
 		
 	}
