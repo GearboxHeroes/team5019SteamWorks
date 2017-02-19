@@ -4,7 +4,6 @@ import org.usfirst.frc.team5019.robot.RobotMap;
 import org.usfirst.frc.team5019.robot.commands.DriveJoystickCommand;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -24,15 +23,14 @@ public class MecanumDriveSubsystem extends Subsystem {
 		
 		itsRobotDrive = new RobotDrive(
 				new CANTalon(RobotMap.kLeftFrontDriveMotorCANID),
-				new CANTalon(RobotMap.kRightFrontDriveMotorCANID),
 				new CANTalon(RobotMap.kLeftRearDriveMotorCANID),
+				new CANTalon(RobotMap.kRightFrontDriveMotorCANID),
 				new CANTalon(RobotMap.kRightRearDriveMotorCANID) );
 		
-		itsRobotDrive.setInvertedMotor(MotorType.kFrontLeft, true);
-		itsRobotDrive.setInvertedMotor(MotorType.kRearLeft, true);
+		itsRobotDrive.setInvertedMotor(MotorType.kFrontRight, true);
+		itsRobotDrive.setInvertedMotor(MotorType.kRearRight, true);
 		
 		itsGyro = new ADXRS450_Gyro();
-
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -43,37 +41,22 @@ public class MecanumDriveSubsystem extends Subsystem {
     }
 
 	public void mecanumDrive(Joystick itsJoystick) {
-		// itsRobotDrive.mecanumDrive_Cartesian(
-		// 		itsJoystick.getX(),
-		// 		itsJoystick.getY(),
-		// 		itsJoystick.getZ(),
-		// 		0);
-		
+		// Y axis flipped inside Robot Drive
 		itsRobotDrive.mecanumDrive_Cartesian(
-				itsJoystick.getRawAxis(1),
 				itsJoystick.getRawAxis(0),
+				itsJoystick.getRawAxis(1),
 				itsJoystick.getRawAxis(4),
-				itsGyro.getAngle());
-		
-		// itsRobotDrive.mecanumDrive_Cartesian(
-		// 		itsJoystick.getX(),
-		// 		itsJoystick.getY(),
-		// 		itsJoystick.getZ(),
-		// 		itsGyro.getAngle());		
+				0);
 	}
 
 	public void mecanumDrive(double pX, double pY, double pRotation) {
+		// need to undo the effect of joystick inversion on the y-axis
+		// inside the Robot Drive class, which we can't change.
 		itsRobotDrive.mecanumDrive_Cartesian(
 				pX,
-				pY,
+				-pY,
 				pRotation,
-				0);
-		
-		// itsRobotDrive.mecanumDrive_Cartesian(
-		// 		itsJoystick.getX(),
-		// 		itsJoystick.getY(),
-		// 		itsJoystick.getZ(),
-		// 		itsGyro.getAngle());		
+				0);	
 	}
 	public void stop() {
 		// TODO Auto-generated method stub

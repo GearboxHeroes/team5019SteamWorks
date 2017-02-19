@@ -11,9 +11,7 @@ public class DriveForwardLeft extends Command {
 
 	private int aExecuteNum;
 	private int aTimesRun;
-	private double aDriveRate;
 	private double aSpeedCommand;
-	private double bSpeedCommand;
 	private int aTimesLeft;
 	
     public DriveForwardLeft(double pDriveTime) {
@@ -21,13 +19,14 @@ public class DriveForwardLeft extends Command {
         // eg. requires(chassis);
     	requires(Robot.getItsMecanumDriveSubsystem());
     	aExecuteNum = (int) (pDriveTime * 50);
-    	aTimesRun = 0;
-    	aSpeedCommand = 0.0;
-    	bSpeedCommand = 0.0;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	aSpeedCommand = 0.0;
+    	aTimesRun = 0;
+    	aTimesLeft = aExecuteNum;
+    	
     	Robot.getItsMecanumDriveSubsystem().getItsGyro().reset();
     }
 
@@ -36,27 +35,17 @@ public class DriveForwardLeft extends Command {
     	aTimesLeft = aExecuteNum - aTimesRun;
     	if (aTimesLeft <= 25) {
     		aSpeedCommand = aSpeedCommand - 0.04;	
-    		if(aSpeedCommand <= 0) {
+    		if (aSpeedCommand <= 0) {
     			aSpeedCommand = 0.0;
     		}
     	} else {
     		aSpeedCommand = aSpeedCommand + 0.04;
     		if (aSpeedCommand >= 1.0) {
     			aSpeedCommand = 1.0;
-    	    	}
+    	    }
     	}
-    	if (aTimesLeft <= 25) {
-    		bSpeedCommand = bSpeedCommand - 0.04;	
-    		if(bSpeedCommand <= 0) {
-    			bSpeedCommand = 0.0;
-    		}
-    	} else {
-    		bSpeedCommand = bSpeedCommand + 0.04;
-    		if (bSpeedCommand >= 1.0) {
-    			bSpeedCommand = 1.0;
-    	    	}
-    	}
-    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(aSpeedCommand, bSpeedCommand, 0.0);
+
+    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(-aSpeedCommand, aSpeedCommand, 0.0);
     	aTimesRun++;
     }
 

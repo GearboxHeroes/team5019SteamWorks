@@ -11,7 +11,6 @@ public class DriveLeft extends Command {
 
 	private int aExecuteNum;
 	private int aTimesRun;
-	private double aDriveRate;
 	private double aSpeedCommand;
 	private int aTimesLeft;
 	
@@ -20,13 +19,14 @@ public class DriveLeft extends Command {
         // eg. requires(chassis);
     	requires(Robot.getItsMecanumDriveSubsystem());
     	aExecuteNum = (int) (pDriveTime * 50);
-    	aTimesRun = 0;
-    	aSpeedCommand = 0.0;
-    	aTimesLeft = aExecuteNum - aTimesRun;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	aSpeedCommand = 0.0;
+    	aTimesRun = 0;
+    	aTimesLeft = aExecuteNum;
+    	
     	Robot.getItsMecanumDriveSubsystem().getItsGyro().reset();
     }
 
@@ -35,16 +35,17 @@ public class DriveLeft extends Command {
     	aTimesLeft = aExecuteNum - aTimesRun;
     	if (aTimesLeft <= 25) {
     		aSpeedCommand = aSpeedCommand - 0.04;	
-    		if(aSpeedCommand <= 0) {
+    		if (aSpeedCommand <= 0) {
     			aSpeedCommand = 0.0;
     		}
     	} else {
     		aSpeedCommand = aSpeedCommand + 0.04;
     		if (aSpeedCommand >= 1.0) {
     			aSpeedCommand = 1.0;
-    	    	}
+    	    }
     	}
-    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(0.0, aSpeedCommand, 0.0);
+
+    	Robot.getItsMecanumDriveSubsystem().mecanumDrive(-aSpeedCommand, 0.0, 0.0);
     	aTimesRun++;
     }
 
