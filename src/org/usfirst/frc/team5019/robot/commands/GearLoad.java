@@ -19,7 +19,7 @@ public class GearLoad extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("Encoder Angle: " + Robot.getItsGearArmSubsystem().getItsGearArmEncoder().getDistance());
-    	Robot.getItsGearArmSubsystem().getItsGearArmMotor().setSpeed(-1.0);
+    	Robot.getItsGearArmSubsystem().getItsGearArmMotor().setSpeed(-0.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +40,7 @@ public class GearLoad extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	System.out.println("Encoder Angle: " + Robot.getItsGearArmSubsystem().getItsGearArmEncoder().getDistance());
-    	Robot.getItsGearArmSubsystem().getItsGearArmMotor().setSpeed(0.0);
+    	Robot.getItsGearArmSubsystem().getItsGearArmMotor().setSpeed(-0.1);
     }
 
     // Called when another command which requires one or more of the same
