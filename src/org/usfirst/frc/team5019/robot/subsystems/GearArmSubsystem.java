@@ -32,7 +32,7 @@ public class GearArmSubsystem extends Subsystem {
 		itsGearArmEncoder.setSamplesToAverage(4);
 		itsGearArmEncoder.reset();
 		
-		SmartDashboard.putData("GearArmEncoder",itsGearArmEncoder);
+		// SmartDashboard.putData("GearArmEncoder",itsGearArmEncoder);
 	}
 	
     // Put methods for controlling this subsystem
