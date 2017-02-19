@@ -26,8 +26,6 @@ public class DriveRight extends Command {
     	aSpeedCommand = 0.0;
     	aTimesRun = 0;
     	aTimesLeft = aExecuteNum;
-    	
-    	Robot.getItsMecanumDriveSubsystem().getItsGyro().reset();
     }
 
     // Called repeatedly when this Command is scheduled to run

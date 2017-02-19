@@ -31,6 +31,7 @@ public class MecanumDriveSubsystem extends Subsystem {
 		itsRobotDrive.setInvertedMotor(MotorType.kRearRight, true);
 		
 		itsGyro = new ADXRS450_Gyro();
+		itsGyro.reset();
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
