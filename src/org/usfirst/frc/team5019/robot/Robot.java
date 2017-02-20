@@ -31,7 +31,7 @@ import org.usfirst.frc.team5019.robot.subsystems.RopeClimbSubsystem;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot implements FRCLoggable {
 
 	private static final MecanumDriveSubsystem itsMecanumDriveSubsystem = new MecanumDriveSubsystem();
 	private static final GearArmSubsystem itsGearArmSubsystem = new GearArmSubsystem();
@@ -55,17 +55,13 @@ public class Robot extends IterativeRobot {
 		itsModeChooser.addDefault("Default (Forward Short)", new AutonomousPosOne());
 		itsModeChooser.addObject("Forward Short", new AutonomousPosOne());
 		itsModeChooser.addObject("Forward Long", new AutonomousPosTwo());
-		// itsModeChooser.addObject("3", new AutonomousPosThree());
-		// itsModeChooser.addObject("2alt", new AutonomousPosTwoAlt());
-		// itsModeChooser.addObject("3alt", new AutonomousPosThreeAlt());
 		SmartDashboard.putData("Autonomous mode chooser", itsModeChooser);
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
 		
-		// SmartDashboard.putData(Scheduler.getInstance());
-		// SmartDashboard.putData(itsMecanumDriveSubsystem);
-		// SmartDashboard.putData(itsGearArmSubsystem);
-		// SmartDashboard.putData(itsRopeClimbSubsystem);
+		SmartDashboard.putData(itsMecanumDriveSubsystem);
+		SmartDashboard.putData(itsGearArmSubsystem);
+		SmartDashboard.putData(itsRopeClimbSubsystem);
 		
 	}
 
@@ -97,10 +93,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		// itsAutonomousCommand = new AutonomousPosThree();
-		// itsAutonomousCommand = new DriveBackwards(1.0);
 		itsAutonomousCommand = (Command) itsModeChooser.getSelected();
-		// schedule the autonomous command (example)
+
 		if (itsAutonomousCommand != null) {
 			itsAutonomousCommand.start();
 		}
@@ -112,6 +106,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		log();
 	}
 
 	@Override
@@ -135,6 +130,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		log();
 	}
 
 	/**
@@ -143,6 +139,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	
+	public void log() {
+		itsMecanumDriveSubsystem.log();
+		itsGearArmSubsystem.log();
+		itsRopeClimbSubsystem.log();
 	}
 	
 	public static MecanumDriveSubsystem getItsMecanumDriveSubsystem() {
