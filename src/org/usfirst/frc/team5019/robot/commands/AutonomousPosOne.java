@@ -10,8 +10,8 @@ public class AutonomousPosOne extends CommandGroup {
     public AutonomousPosOne() {
         // Add Commands here:
         addParallel(new GearUnload());
-    	addSequential(new DriveForward(1.0));
-        // these will run in order.
+    	addSequential(new DriveForward(1.5));
+        // these will run in order.ii 
 
         // To run multiple commands at the same time,
         // use addParallel()

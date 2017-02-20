@@ -10,8 +10,10 @@ public class AutonomousPosTwo extends CommandGroup {
     public AutonomousPosTwo() {
         // Add Commands here:
         addParallel(new GearUnload());
-        addSequential(new DriveForwardLeft(0.0));
-        addSequential(new DriveForward(0.0));
+        // addSequential(new DriveForwardLeft(0.0));
+        addSequential(new DriveForward(2.5));
+        // addSequential(new DriveForwardLeft(0.0));
+        // addSequential(new DriveForward(0.0));
         // these will run in order.
 
         // To run multiple commands at the same time,

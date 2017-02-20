@@ -52,11 +52,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		itsOI = new OI();
-		itsModeChooser.addDefault("1", new AutonomousPosOne());
-		itsModeChooser.addObject("2", new AutonomousPosTwo());
-		itsModeChooser.addObject("3", new AutonomousPosThree());
-		itsModeChooser.addObject("2alt", new AutonomousPosTwoAlt());
-		itsModeChooser.addObject("3alt", new AutonomousPosThreeAlt());
+		itsModeChooser.addDefault("Default (Forward Short)", new AutonomousPosOne());
+		itsModeChooser.addObject("Forward Short", new AutonomousPosOne());
+		itsModeChooser.addObject("Forward Long", new AutonomousPosTwo());
+		// itsModeChooser.addObject("3", new AutonomousPosThree());
+		// itsModeChooser.addObject("2alt", new AutonomousPosTwoAlt());
+		// itsModeChooser.addObject("3alt", new AutonomousPosThreeAlt());
 		SmartDashboard.putData("Autonomous mode chooser", itsModeChooser);
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
