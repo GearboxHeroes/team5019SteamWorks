@@ -20,8 +20,8 @@ public class GearArmSubsystem extends Subsystem {
 		super("GearArmSubsystem");
 		
 		itsGearArmMotor = new Spark(RobotMap.kGearArmMotorID);
-		itsGearArmMotor.setSafetyEnabled(true);
-		itsGearArmMotor.setExpiration(0.1);
+		itsGearArmMotor.setSafetyEnabled(false);
+		// itsGearArmMotor.setExpiration(0.1);
 		
 		itsGearArmEncoder = new Encoder(
 			RobotMap.kGearArmEncoderQuadAID,
@@ -40,7 +40,7 @@ public class GearArmSubsystem extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new GearUnload());
+        // setDefaultCommand(new GearUnload());
     }
     
     public Spark getItsGearArmMotor() {
