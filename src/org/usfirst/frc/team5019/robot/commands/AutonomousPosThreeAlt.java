@@ -10,9 +10,9 @@ public class AutonomousPosThreeAlt extends CommandGroup {
     public AutonomousPosThreeAlt() {
         // Add Commands here:
         addParallel(new GearUnload());
-    	addSequential(new DriveForward(0.0));
-        addSequential(new DriveClockwise(0.0));
-        addSequential(new DriveForward(0.0));
+    	addSequential(new DriveForward(0.0, 1.0));
+        addSequential(new DriveClockwise(0.0, 1.0));
+        addSequential(new DriveForward(0.0, 1.0));
         // these will run in order.
 
         // To run multiple commands at the same time,

@@ -10,9 +10,9 @@ public class AutonomousPosTwoAlt extends CommandGroup {
     public AutonomousPosTwoAlt() {
         // Add Commands here:
         addParallel(new GearUnload());
-    	addSequential(new DriveForward(0.0));
-        addSequential(new DriveCounterClockwise(0.0));
-        addSequential(new DriveForward(0.0));
+    	addSequential(new DriveForward(0.0, 1.0));
+        addSequential(new DriveCounterClockwise(0.0, 1.0));
+        addSequential(new DriveForward(0.0, 1.0));
         // these will run in order.
 
         // To run multiple commands at the same time,
