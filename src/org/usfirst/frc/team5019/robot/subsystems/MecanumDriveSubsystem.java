@@ -44,9 +44,9 @@ public class MecanumDriveSubsystem extends Subsystem {
 	public void mecanumDrive(Joystick itsJoystick) {
 		// Y axis flipped inside Robot Drive
 		itsRobotDrive.mecanumDrive_Cartesian(
-				itsJoystick.getRawAxis(0),
-				itsJoystick.getRawAxis(1),
-				itsJoystick.getRawAxis(4),
+				itsJoystick.getRawAxis(RobotMap.kJoystickLX),
+				itsJoystick.getRawAxis(RobotMap.kJoystickLY),
+				itsJoystick.getRawAxis(RobotMap.kJoystickRX),
 				0);
 	}
 
