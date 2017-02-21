@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PreSpinWinchMotors extends Command {
+public class StopWinchMotors extends Command {
 
-    public PreSpinWinchMotors() {
+    public StopWinchMotors() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.getItsRopeClimbSubsystem());
@@ -17,12 +17,14 @@ public class PreSpinWinchMotors extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor1().set(0.15);
-    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor2().set(0.15);
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor1().set(0.00);
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor2().set(0.00);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor1().set(0.00);
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor2().set(0.00);
     }
 
     // Make this return true when this Command no longer needs to run execute()

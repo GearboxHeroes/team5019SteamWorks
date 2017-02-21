@@ -2,6 +2,7 @@ package org.usfirst.frc.team5019.robot.subsystems;
 
 import org.usfirst.frc.team5019.robot.FRCLoggable;
 import org.usfirst.frc.team5019.robot.RobotMap;
+import org.usfirst.frc.team5019.robot.commands.StopWinchMotors;
 
 import com.ctre.CANTalon;
 
@@ -16,62 +17,47 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class RopeClimbSubsystem extends Subsystem implements FRCLoggable {
-	protected Compressor itsCompressor;
-	protected CANTalon itsLeftRoller;
-	protected CANTalon itsRightRoller;
-	protected Solenoid itsThreeWayValve;
+	protected CANTalon itsWinchMotor1;
+	protected CANTalon itsWinchMotor2;
 	
 	public RopeClimbSubsystem() {
 		super("RopeClimbSubsystem");
 		
-		itsCompressor = new Compressor(RobotMap.kPCMCANID);
-		itsCompressor.setClosedLoopControl(false);
+		itsWinchMotor1 = new CANTalon(RobotMap.kWinchMotor1CANID);
+		itsWinchMotor1.setSafetyEnabled(false);
 
-		itsLeftRoller = new CANTalon(RobotMap.kLeftRollerMotorCANID);
-		itsRightRoller = new CANTalon(RobotMap.kRightRollerMotorCANID);
-		
-		itsThreeWayValve = new Solenoid(RobotMap.kPCMCANID, RobotMap.kThreeWayValvePortID);
-		
-		// LiveWindow.addActuator("RopeClimbSubsystem", "Three Way Valve", itsThreeWayValve);
-		// LiveWindow.addActuator("RopeClimbSubsystem", "Left Roller", itsLeftRoller);
-		// LiveWindow.addActuator("RopeClimbSubsystem", "Right Roller", itsRightRoller);
-		// LiveWindow.addActuator("RopeClimbSubsystem", "Compressor", itsCompressor);
+		itsWinchMotor2 = new CANTalon(RobotMap.kWinchMotor2CANID);
+		itsWinchMotor2.setSafetyEnabled(false);
+
+		// LiveWindow.addActuator("RopeClimbSubsystem", "Winch Motor 1", itsWinchMotor1);
+		// LiveWindow.addActuator("RopeClimbSubsystem", "Winch Motor 2", itsWinchMotor2);
 	}
 	// Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new StopWinchMotors());
     }
     
 	public void climbRope( Joystick itsJoystick )
 	{
-		itsLeftRoller.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
-		itsRightRoller.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
+		itsWinchMotor1.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
+		itsWinchMotor2.set(itsJoystick.getRawAxis(RobotMap.kJoystickLTrigger));
 	}
     
-    public Compressor getItsCompressor() {
-    	return itsCompressor;
+    public CANTalon getItsWinchMotor1() {
+    	return itsWinchMotor1;
     }
     
-    public CANTalon getItsLeftRoller() {
-    	return itsLeftRoller;
+    public CANTalon getItsWinchMotor2() {
+    	return itsWinchMotor2;
     }
     
-    public CANTalon getItsRightRoller() {
-    	return itsRightRoller;
-    }
-    
-    public Solenoid getItsThreeWayValve() {
-    	return itsThreeWayValve;
-    }
-
 	@Override
 	public void log() {
-		// SmartDashboard.putBoolean("3-Way Solenoid Valve", itsThreeWayValve.get());
-		// SmartDashboard.putNumber("Left Roller Speed", itsLeftRoller.getSpeed());
-		// SmartDashboard.putNumber("Right Roller Speed", itsRightRoller.getSpeed());
+		// SmartDashboard.putNumber("Winch Motor 1 Speed", itsWinchMotor1.getSpeed());
+		// SmartDashboard.putNumber("Winch Motor 2 Speed", itsWinchMotor2.getSpeed());
 	}
 
 }

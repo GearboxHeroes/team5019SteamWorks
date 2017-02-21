@@ -22,8 +22,8 @@ public class RobotMap {
 	public static int kRightFrontDriveMotorCANID = 2;
 	public static int kLeftRearDriveMotorCANID = 3;
 	public static int kRightRearDriveMotorCANID = 4;
-	public static int kLeftRollerMotorCANID = 5;
-	public static int kRightRollerMotorCANID = 6;
+	public static int kWinchMotor1CANID = 5;
+	public static int kWinchMotor2CANID = 6;
 	
 	// PCM CAN ID
 	public static int kPCMCANID = 1;
