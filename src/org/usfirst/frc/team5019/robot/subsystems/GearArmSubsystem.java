@@ -33,8 +33,8 @@ public class GearArmSubsystem extends Subsystem implements FRCLoggable {
 		itsGearArmEncoder.setSamplesToAverage(4);
 		itsGearArmEncoder.reset();
 		
-		LiveWindow.addActuator("GearArmSubsystem", "Motor", itsGearArmMotor);
-		LiveWindow.addSensor("GearArmSubsystem", "Encoder", itsGearArmEncoder);
+		// LiveWindow.addActuator("GearArmSubsystem", "Motor", itsGearArmMotor);
+		// LiveWindow.addSensor("GearArmSubsystem", "Encoder", itsGearArmEncoder);
 	}
 	
     // Put methods for controlling this subsystem
@@ -55,9 +55,9 @@ public class GearArmSubsystem extends Subsystem implements FRCLoggable {
 
 	@Override
 	public void log() {
-		SmartDashboard.putNumber("Encoder Angle", itsGearArmEncoder.getDistance());
-		SmartDashboard.putNumber("Encoder Rate", itsGearArmEncoder.getRate());
-		SmartDashboard.putNumber("Gear Arm Motor Speed", itsGearArmMotor.getSpeed());
+		// SmartDashboard.putNumber("Encoder Angle", itsGearArmEncoder.getDistance());
+		// SmartDashboard.putNumber("Encoder Rate", itsGearArmEncoder.getRate());
+		// SmartDashboard.putNumber("Gear Arm Motor Speed", itsGearArmMotor.getSpeed());
 	}
  
 }

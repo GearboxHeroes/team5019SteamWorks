@@ -46,11 +46,11 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 		itsGyro = new ADXRS450_Gyro();
 		itsGyro.reset();
 		
-		LiveWindow.addActuator("MecanumDriveSubsystem", "Left Front Motor", itsLeftFrontMotor);
-		LiveWindow.addActuator("MecanumDriveSubsystem", "Right Front Motor", itsRightFrontMotor);
-		LiveWindow.addActuator("MecanumDriveSubsystem", "Left Rear Motor", itsLeftRearMotor);
-		LiveWindow.addActuator("MecanumDriveSubsystem", "Right Rear Motor", itsRightRearMotor);
-		LiveWindow.addSensor("MecanumDriveSubsystem", "Gyro", itsGyro);
+		// LiveWindow.addActuator("MecanumDriveSubsystem", "Left Front Motor", itsLeftFrontMotor);
+		// LiveWindow.addActuator("MecanumDriveSubsystem", "Right Front Motor", itsRightFrontMotor);
+		// LiveWindow.addActuator("MecanumDriveSubsystem", "Left Rear Motor", itsLeftRearMotor);
+		// LiveWindow.addActuator("MecanumDriveSubsystem", "Right Rear Motor", itsRightRearMotor);
+		// LiveWindow.addSensor("MecanumDriveSubsystem", "Gyro", itsGyro);
 
 	}
     // Put methods for controlling this subsystem
@@ -67,7 +67,7 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 				itsJoystick.getRawAxis(RobotMap.kJoystickLX),
 				itsJoystick.getRawAxis(RobotMap.kJoystickLY),
 				itsJoystick.getRawAxis(RobotMap.kJoystickRX),
-				0);
+				itsGyro.getAngle() );
 	}
 
 	public void mecanumDrive(double pX, double pY, double pRotation) {
@@ -77,7 +77,7 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 				pX,
 				-pY,
 				pRotation,
-				0);	
+				itsGyro.getAngle() );	
 	}
 	public void stop() {
 	}
@@ -92,12 +92,12 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 
 	@Override
 	public void log() {
-		SmartDashboard.putNumber("Left Front Motor Speed", itsLeftFrontMotor.getSpeed());
-		SmartDashboard.putNumber("Right Front Motor Speed", itsRightFrontMotor.getSpeed());
-		SmartDashboard.putNumber("Left Rear Motor Speed", itsLeftRearMotor.getSpeed());
-		SmartDashboard.putNumber("Right Rear Motor Speed", itsRightRearMotor.getSpeed());
-		SmartDashboard.putNumber("Gyro Angle", itsGyro.getAngle());
-		SmartDashboard.putNumber("Gyro Rate", itsGyro.getRate());
+		// SmartDashboard.putNumber("Left Front Motor Speed", itsLeftFrontMotor.getSpeed());
+		// SmartDashboard.putNumber("Right Front Motor Speed", itsRightFrontMotor.getSpeed());
+		// SmartDashboard.putNumber("Left Rear Motor Speed", itsLeftRearMotor.getSpeed());
+		// SmartDashboard.putNumber("Right Rear Motor Speed", itsRightRearMotor.getSpeed());
+		// SmartDashboard.putNumber("Gyro Angle", itsGyro.getAngle());
+		// SmartDashboard.putNumber("Gyro Rate", itsGyro.getRate());
 	}
 	
 }

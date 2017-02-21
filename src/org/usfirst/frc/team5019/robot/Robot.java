@@ -59,9 +59,9 @@ public class Robot extends IterativeRobot implements FRCLoggable {
 		
 		itsFirstTeleopCommand = new DriveJoystickCommand();
 		
-		SmartDashboard.putData(itsMecanumDriveSubsystem);
-		SmartDashboard.putData(itsGearArmSubsystem);
-		SmartDashboard.putData(itsRopeClimbSubsystem);
+		// SmartDashboard.putData(itsMecanumDriveSubsystem);
+		// SmartDashboard.putData(itsGearArmSubsystem);
+		// SmartDashboard.putData(itsRopeClimbSubsystem);
 		
 	}
 
@@ -142,9 +142,9 @@ public class Robot extends IterativeRobot implements FRCLoggable {
 	}
 	
 	public void log() {
-		itsMecanumDriveSubsystem.log();
-		itsGearArmSubsystem.log();
-		itsRopeClimbSubsystem.log();
+		// itsMecanumDriveSubsystem.log();
+		// itsGearArmSubsystem.log();
+		// itsRopeClimbSubsystem.log();
 	}
 	
 	public static MecanumDriveSubsystem getItsMecanumDriveSubsystem() {
