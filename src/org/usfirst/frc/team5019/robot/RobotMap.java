@@ -25,12 +25,6 @@ public class RobotMap {
 	public static int kWinchMotor1CANID = 5;
 	public static int kWinchMotor2CANID = 6;
 	
-	// PCM CAN ID
-	public static int kPCMCANID = 1;
-	
-	// Solenoid IDs (map to solenoid port numbers on PCM)
-	public static int kThreeWayValvePortID = 0;
-	
 	// PWM IDs
 	public static int kGearArmMotorID = 0;
 	
