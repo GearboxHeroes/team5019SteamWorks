@@ -20,7 +20,7 @@ import com.ctre.CANTalon;
 public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 	// Subsystem devices
 	private RobotDrive itsRobotDrive;
-	private ADXRS450_Gyro itsGyro;
+	// private ADXRS450_Gyro itsGyro;
 	private CANTalon itsLeftFrontMotor;
 	private CANTalon itsRightFrontMotor;
 	private CANTalon itsLeftRearMotor;
@@ -32,7 +32,7 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 		itsLeftFrontMotor = new CANTalon(RobotMap.kLeftFrontDriveMotorCANID);
 		itsRightFrontMotor = new CANTalon(RobotMap.kRightFrontDriveMotorCANID);
 		itsLeftRearMotor = new CANTalon(RobotMap.kLeftRearDriveMotorCANID);
-		itsRightRearMotor = new CANTalon(RobotMap.kLeftRearDriveMotorCANID);
+		itsRightRearMotor = new CANTalon(RobotMap.kRightRearDriveMotorCANID);
 		
 		itsRobotDrive = new RobotDrive(
 				itsLeftFrontMotor,
@@ -40,11 +40,15 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 				itsRightFrontMotor,
 				itsRightRearMotor );
 		
+		itsRobotDrive.setExpiration(0.2);
+		
+		itsRobotDrive.setInvertedMotor(MotorType.kFrontLeft, false);
+		itsRobotDrive.setInvertedMotor(MotorType.kRearLeft, false);
 		itsRobotDrive.setInvertedMotor(MotorType.kFrontRight, true);
 		itsRobotDrive.setInvertedMotor(MotorType.kRearRight, true);
 		
-		itsGyro = new ADXRS450_Gyro();
-		itsGyro.reset();
+		// itsGyro = new ADXRS450_Gyro();
+		// itsGyro.reset();
 		
 		// LiveWindow.addActuator("MecanumDriveSubsystem", "Left Front Motor", itsLeftFrontMotor);
 		// LiveWindow.addActuator("MecanumDriveSubsystem", "Right Front Motor", itsRightFrontMotor);
@@ -66,8 +70,8 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 		itsRobotDrive.mecanumDrive_Cartesian(
 				itsJoystick.getRawAxis(RobotMap.kJoystickLX),
 				itsJoystick.getRawAxis(RobotMap.kJoystickLY),
-				itsJoystick.getRawAxis(RobotMap.kJoystickRX),
-				itsGyro.getAngle() );
+				itsJoystick.getRawAxis(RobotMap.kJoystickRX)*0.5,
+				0 );
 	}
 
 	public void mecanumDrive(double pX, double pY, double pRotation) {
@@ -77,14 +81,14 @@ public class MecanumDriveSubsystem extends Subsystem implements FRCLoggable {
 				pX,
 				-pY,
 				pRotation,
-				itsGyro.getAngle() );	
+				0 );	
 	}
 	public void stop() {
 	}
 	
-	public ADXRS450_Gyro getItsGyro() {
-		return itsGyro;
-	}
+	// public ADXRS450_Gyro getItsGyro() {
+	// 	return itsGyro;
+	// }
 	
 	public RobotDrive getItsRobotdrive() {
 		return itsRobotDrive;
