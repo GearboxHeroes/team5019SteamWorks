@@ -25,9 +25,11 @@ public class RopeClimbSubsystem extends Subsystem implements FRCLoggable {
 		
 		itsWinchMotor1 = new CANTalon(RobotMap.kWinchMotor1CANID);
 		itsWinchMotor1.setSafetyEnabled(false);
+		itsWinchMotor1.setInverted(false);
 
 		itsWinchMotor2 = new CANTalon(RobotMap.kWinchMotor2CANID);
 		itsWinchMotor2.setSafetyEnabled(false);
+		itsWinchMotor2.setInverted(false);
 
 		// LiveWindow.addActuator("RopeClimbSubsystem", "Winch Motor 1", itsWinchMotor1);
 		// LiveWindow.addActuator("RopeClimbSubsystem", "Winch Motor 2", itsWinchMotor2);
