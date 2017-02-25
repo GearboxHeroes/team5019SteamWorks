@@ -23,16 +23,12 @@ public class GearLoad extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.getItsGearArmSubsystem().getItsGearArmMotor().setSpeed(-0.50);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.getItsGearArmSubsystem().getItsGearArmEncoder().getDistance() <=
-    			RobotMap.kGearArmLoadAngle){
-    		return true;
-    	} else {
-    		return false;
-    	}
+    	return false;
     }
 
     // Called once after isFinished returns true
