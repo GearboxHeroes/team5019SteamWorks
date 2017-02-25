@@ -17,8 +17,8 @@ public class PreSpinWinchMotors extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor1().set(0.15);
-    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor2().set(0.15);
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor1().set(0.25);
+    	Robot.getItsRopeClimbSubsystem().getItsWinchMotor2().set(0.25);
     }
 
     // Called repeatedly when this Command is scheduled to run
