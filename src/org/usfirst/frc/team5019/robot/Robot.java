@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5019.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -51,7 +52,13 @@ public class Robot extends IterativeRobot implements FRCLoggable {
 	 */
 	@Override
 	public void robotInit() {
+		// Set up operator interface
 		itsOI = new OI();
+		
+		// Set up USB camera
+		CameraServer.getInstance().startAutomaticCapture();
+		
+		// Set up Mode Chooser Smart Dashboard options
 		itsModeChooser.addDefault("Default (Forward Short)", new AutonomousPosOne());
 		itsModeChooser.addObject("Forward Short", new AutonomousPosOne());
 		itsModeChooser.addObject("Forward Long", new AutonomousPosTwo());
